@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pune Book Festival Gallery - View photos and videos from past festivals, author events, and literary activities.">
+    <meta name="keywords"
+        content="Pune Book Festival gallery, photos, videos, V-blogs, festival moments, literary events">
+    <title>Gallery - Pune Book Festival 2025</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=countdown-split-flap">
+    <script src="assets/js/countdown.js?v=3" defer></script>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <style>
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+            color: white;
+            font-size: 2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .video-item {
+            position: relative;
+        }
+
+        .video-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem 1rem 1rem;
+            font-weight: 500;
+        }
+
+        .lightbox-content img,
+        .lightbox-content iframe {
+            border-radius: var(--radius-lg);
+        }
+
+        @media (max-width: 768px) {
+            .photos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- World Record Badge -->
+    <div class="world-record-banner"
+        style="background: linear-gradient(135deg, var(--gold) 0%, #DAA520 100%); color: var(--ink); text-align: center; padding: 0.5rem 0; font-weight: 600; font-size: 0.9rem; position: sticky; top: 0; z-index: 1001;">
+        <span>🏆 WORLD RECORD HOLDER - Largest Book Festival in India</span>
+        <div class="festival-countdown">
+            <p><span id="festival-countdown-label">Festival starts</span> <time datetime="2026-12-12T00:00:00+05:30">12 Dec 2026</time></p>
+            <p id="festival-countdown-timer" role="timer" hidden>
+                <span class="countdown-tile"><b data-unit="days" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="hours" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="minutes" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="seconds" aria-hidden="true"></b></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <!-- Top Row with 3 Logos and Register Button -->
+            <div class="header-logos"
+                style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--gray-200);">
+                <div style="flex: 1;"></div>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex: 1;">
+                    <img src="assets/MOE.webp" alt="Pune Book Festival Logo" style="height: 60px;">
+                    <img src="assets/PBF logo.webp" alt="Partner Logo 2" style="height: 60px; opacity: 0.8;">
+                    <img src="assets/NBT_India_logo.webp" alt="Partner Logo 3" style="height: 60px; opacity: 0.8;">
+                </div>
+
+                <div style="flex: 1;"></div>
+
+            </div>
+
+            <div class="header-content" style="justify-content: center;">
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="childrescorner.html" class="nav-link">Children's Corner</a></li>
+                        <li class="nav-item"><a href="pbf-facts.html" class="nav-link">PBF Facts</a></li>
+                        <li class="nav-item"><a href="timetable.html" class="nav-link">Time Table</a></li>
+                        <li class="nav-item recap-nav">
+                            <details>
+                                <summary class="nav-link">Recap <span aria-hidden="true">&#9662;</span></summary>
+                                <ul class="recap-year-menu">
+                                    <li><a class="nav-link" href="recap.html#recap-2025">2025</a></li>
+                                    <li><a class="nav-link" href="recap.html#recap-2024">2024</a></li>
+                                    <li><a class="nav-link" href="recap.html#recap-2023">2023</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="gallery.html" class="nav-item" style="color: #000;">Gallery <span class="dropdown-arrow">▼</span></a>
+                            <div class="dropdown-menu">
+                                <a href="photos.html" class="dropdown-item">📸 Photos</a>
+                                <a href="videos.html" class="dropdown-item">🎥 Videos</a>
+                                <a href="Reels.html" class="dropdown-item">🎬 Reels</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
+                        <li class="nav-item"><a href="world-record.html" class="nav-link">World Record</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="margin-bottom: 100px;">
+            <div class="container" style="text-align: center; margin-top: 100px;">
+                <h1>Festival Gallery</h1>
+                <p>Relive the magical moments from Pune Book Festival through our collection of photos and videos</p>
+            </div>
+        </section>
+
+        <!-- Gallery Overview -->
+        <section class="section">
+            <div class="container">
+                <div class="row" style="gap: 3rem;">
+                    <!-- Photos Section -->
+                    <div class="col-md-6">
+                        <div
+                            style="background: white; border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-md); height: 100%;">
+                            <div style="text-align: center; margin-bottom: 2rem;">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">📸</div>
+                                <h2 style="color: var(--maroon); margin-bottom: 1rem;">Festival Photos</h2>
+                                <p style="color: var(--gray-600); margin-bottom: 2rem;">
+                                    Explore our collection of beautiful moments captured during the festival - from
+                                    opening ceremonies to intimate reading sessions.
+                                </p>
+                            </div>
+
+                            <!-- Photo Preview Grid -->
+                            <div
+                                style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                                <img src="assets/pune book festival images/1.webp" alt="Festival moment"
+                                    style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-sm);">
+                                <img src="assets/pune book festival images/2.webp" alt="Festival moment"
+                                    style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-sm);">
+                                <img src="assets/pune book festival images/3.webp" alt="Festival moment"
+                                    style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-sm);">
+                            </div>
+
+                            <div style="text-align: center;">
+                                <a href="photos.html" class="btn btn-primary">View All Photos</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Videos Section -->
+                    <div class="col-md-6">
+                        <div
+                            style="background: white; border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-md); height: 100%;">
+                            <div style="text-align: center; margin-bottom: 2rem;">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">🎥</div>
+                                <h2 style="color: var(--maroon); margin-bottom: 1rem;">Videos & V-Blogs</h2>
+                                <p style="color: var(--gray-600); margin-bottom: 2rem;">
+                                    Watch festival highlights, author interviews, and our exclusive V-Blog series
+                                    featuring book reviews and literary discussions.
+                                </p>
+                            </div>
+
+                            <!-- Video Preview -->
+                            <div class="video-container">
+                                <!-- Video 1 -->
+                                <div class="video-card">
+                                    <video src="assets/PBF-videos/VID-20250904-WA0002.mp4" alt="Video preview"
+                                        style="width: 100%; height: 200px; object-fit: cover;">
+                                    </video>
+                                    <div class="play-button">
+                                        ▶
+                                    </div>
+                                </div>
+
+                                <!-- Video 2 -->
+                                <div class="video-card">
+                                    <video src="assets/PBF-videos/VID-20250904-WA0006.mp4" alt="Video preview"
+                                        style="width: 100%; height: 200px; object-fit: cover;">
+                                    </video>
+                                    <div class="play-button">
+                                        ▶
+                                    </div>
+                                </div>
+
+                                <!-- Video 3 -->
+                                <div class="video-card">
+                                    <video src="assets/PBF-videos/VID-20250904-WA0004.mp4" alt="Video preview"
+                                        style="width: 100%; height: 200px; object-fit: cover;">
+                                    </video>
+                                    <div class="play-button">
+                                        ▶
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div style="text-align: center;">
+                                <a href="videos.html" class="btn btn-primary">Watch Videos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <!-- <section class="section" style="background-color: var(--gray-50);">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div style="padding: 1.5rem;">
+                            <div
+                                style="font-size: 2.5rem; font-weight: 700; color: var(--maroon); margin-bottom: 0.5rem;">
+                                500+</div>
+                            <div style="color: var(--gray-600);">Festival Photos</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="padding: 1.5rem;">
+                            <div
+                                style="font-size: 2.5rem; font-weight: 700; color: var(--maroon); margin-bottom: 0.5rem;">
+                                25+</div>
+                            <div style="color: var(--gray-600);">Video Highlights</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="padding: 1.5rem;">
+                            <div
+                                style="font-size: 2.5rem; font-weight: 700; color: var(--maroon); margin-bottom: 0.5rem;">
+                                15+</div>
+                            <div style="color: var(--gray-600);">V-Blog Episodes</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="padding: 1.5rem;">
+                            <div
+                                style="font-size: 2.5rem; font-weight: 700; color: var(--maroon); margin-bottom: 0.5rem;">
+                                10+</div>
+                            <div style="color: var(--gray-600);">Author Interviews</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+
+
+        <section class="section" style="background-color: var(--gray-50);">
+            <div class="container">
+                <div class="row text-center"
+                    style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                    <!-- Card 1: Festival Photos -->
+                    <div class="col-md-3" style="flex: 1; min-width: 220px;">
+                        <div class="card"
+                            style="padding: 2rem; box-shadow: var(--shadow-lg); border-radius: var(--radius-lg);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--maroon); margin-bottom: 1rem;">
+                                500+
+                            </div>
+                            <div style="color: var(--gray-600);">Festival Photos</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Video Highlights -->
+                    <div class="col-md-3" style="flex: 1; min-width: 220px;">
+                        <div class="card"
+                            style="padding: 2rem; box-shadow: var(--shadow-lg); border-radius: var(--radius-lg);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--maroon); margin-bottom: 1rem;">
+                                25+
+                            </div>
+                            <div style="color: var(--gray-600);">Video Highlights</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: V-Blog Episodes -->
+                    <div class="col-md-3" style="flex: 1; min-width: 220px;">
+                        <div class="card"
+                            style="padding: 2rem; box-shadow: var(--shadow-lg); border-radius: var(--radius-lg);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--maroon); margin-bottom: 1rem;">
+                                15+
+                            </div>
+                            <div style="color: var(--gray-600);">V-Blog Episodes</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Author Interviews -->
+                    <div class="col-md-3" style="flex: 1; min-width: 220px;">
+                        <div class="card"
+                            style="padding: 2rem; box-shadow: var(--shadow-lg); border-radius: var(--radius-lg);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--maroon); margin-bottom: 1rem;">
+                                10+
+                            </div>
+                            <div style="color: var(--gray-600);">Author Interviews</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Gallery Tabs -->
+        <section class="section">
+            <div class="container">
+                <div class="tabs">
+                    <ul class="tab-list">
+                        <li><button class="tab-button active" data-tab="photos">📸 Photos</button></li>
+                        <li><button class="tab-button" data-tab="videos">🎥 Videos</button></li>
+                    </ul>
+                </div>
+
+                <!-- Photos Tab -->
+                <!-- Photos Tab -->
+                <div id="photos" class="tab-content active">
+                    <div class="section-header">
+                        <h2 class="section-title">Festival Photos</h2>
+                        <p class="section-subtitle">Capturing the essence of literary celebration and community
+                            engagement</p>
+                    </div>
+
+                    <div class="photos-grid">
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/10.webp" alt="Festival Photo 10">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/11.webp" alt="Festival Photo 11">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/12.webp" alt="Festival Photo 12">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/13.webp" alt="Festival Photo 13">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/14.webp" alt="Festival Photo 14">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/15.webp" alt="Festival Photo 15">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/16.webp" alt="Festival Photo 16">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/17.webp" alt="Festival Photo 17">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/18.webp" alt="Festival Photo 18">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/19.webp" alt="Festival Photo 19">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/pune book festival images/20.webp" alt="Festival Photo 20">
+                            <div class="gallery-overlay">📸</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Videos Tab -->
+                <div id="videos" class="tab-content">
+                    <div class="section-header">
+                        <h2 class="section-title">Videos & V-Blogs</h2>
+                        <p class="section-subtitle">Watch highlights, author interviews, and our exclusive V-Blog series
+                        </p>
+                    </div>
+
+                    <div class="videos-grid">
+                        <!-- Videos will be loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section"
+            style="background: linear-gradient(135deg, var(--maroon) 0%, #6B1515 100%); color: white;">
+            <div class="container text-center">
+                <h2 style="color: white; margin-bottom: 1rem;">Explore Our Complete Gallery</h2>
+                <p style="font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.9;">
+                    Dive deeper into our collection of festival memories and behind-the-scenes moments
+                </p>
+
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="photos.html" class="btn" style="background-color: var(--gold); color: var(--ink);">📸
+                        Browse Photos</a>
+                    <a href="videos.html" class="btn btn-outline" style="color: white; border-color: white;">🎥 Watch
+                        Videos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Moments -->
+        <section class="section" style="background-color: var(--gray-50);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Moments</h2>
+                    <p class="section-subtitle">Highlights from our most memorable festival experiences</p>
+                </div>
+
+                <div class="grid grid-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">📚</div>
+                            <h3>Author Interactions</h3>
+                            <p>Intimate conversations with renowned authors, book signings, and literary discussions
+                                that inspire and educate.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">👶</div>
+                            <h3>Children's Activities</h3>
+                            <p>Joyful moments from our kids' corner featuring storytelling, puppet shows, and creative
+                                workshops.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🎭</div>
+                            <h3>Cultural Performances</h3>
+                            <p>Vibrant cultural programs, poetry recitations, and artistic performances celebrating
+                                literature.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- V-Blog Spotlight -->
+        <section class="section">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center; gap: 3rem;">
+                    <div>
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">V-Blogs: Stories in
+                            Motion</h2>
+                        <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+                            Our V-Blog series brings literature to life through engaging video content. From book
+                            reviews to author spotlights, these videos make literary discussions accessible and
+                            entertaining.
+                        </p>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="margin-bottom: 1rem;">Featured V-Blog Series:</h4>
+                            <ul style="list-style-type: none; padding-left: 0;">
+                                <li style="margin-bottom: 0.5rem;">🎬 <strong>Book Spotlight:</strong> In-depth reviews
+                                    and recommendations</li>
+                                <li style="margin-bottom: 0.5rem;">👥 <strong>Author Conversations:</strong> Exclusive
+                                    interviews and insights</li>
+                                <li style="margin-bottom: 0.5rem;">📖 <strong>Reading Corner:</strong> Community reading
+                                    experiences</li>
+                                <li style="margin-bottom: 0.5rem;">🎭 <strong>Literary Performances:</strong> Poetry and
+                                    dramatic readings</li>
+                            </ul>
+                        </div>
+                        <a href="#videos" class="btn btn-primary"
+                            onclick="document.querySelector('[data-tab=videos]').click()">Watch V-Blogs</a>
+                    </div>
+                    <div>
+                        <div
+                            style="position: relative; background-color: var(--gray-200); border-radius: 1rem; height: 300px; display: flex; align-items: center; justify-content: center; color: var(--gray-500);">
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">🎥</div>
+                                <p>V-Blog Preview</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Integration -->
+        <section class="section" style="background-color: var(--cream);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Share Your Moments</h2>
+                    <p class="section-subtitle">Tag us in your festival photos and become part of our gallery</p>
+                </div>
+
+                <div class="text-center">
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem;">Use our hashtags:</h3>
+                        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                            <span class="badge"
+                                style="background-color: var(--maroon); color: white; padding: 0.5rem 1rem; font-size: 1rem;">#PuneBookFestival</span>
+                            <span class="badge"
+                                style="background-color: var(--accent); color: white; padding: 0.5rem 1rem; font-size: 1rem;">#MyBookMyStory</span>
+                            <span class="badge"
+                                style="background-color: var(--gold); color: var(--ink); padding: 0.5rem 1rem; font-size: 1rem;">#PuneReads</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#" class="btn btn-outline">📘 Facebook</a>
+                        <a href="#" class="btn btn-outline">📷 Instagram</a>
+                        <a href="#" class="btn btn-outline">🐦 Twitter</a>
+                        <a href="#" class="btn btn-outline">📺 YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+            <!-- Content will be loaded by JavaScript -->
+        </div>
+    </div>
+
+    <footer class="festival-footer">
+        <div class="festival-footer-inner">
+            <div class="festival-footer-grid">
+                <div class="festival-footer-intro">
+                    <a class="festival-footer-brand" href="index.html">
+                        <img src="assets/PBF%20logo.webp" alt="Pune Book Festival" width="120" height="100" loading="lazy">
+                    </a>
+                    <p>Ten days when Pune turns into a city made of paper. Books, authors, readers and ideas, together on one ground.</p>
+                    <address class="festival-footer-contact">
+                        <a href="https://maps.google.com/maps/dir//Fergusson+College,+Shivajinagar,+Pune"><span aria-hidden="true">&#x2316;</span>Fergusson College Ground, Pune, Maharashtra</a>
+                        <a href="mailto:info@punebookfestival.org"><span aria-hidden="true">&#x2709;</span>info@punebookfestival.org</a>
+                        <a href="tel:+912025678900"><span aria-hidden="true">&#x260E;</span>+91 20 2567 8900</a>
+                    </address>
+                </div>
+                <nav aria-label="Explore">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="timetable.html">Schedule</a></li>
+                        <li><a href="childrescorner.html">Children's Corner</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Festival">
+                    <h2>Festival</h2>
+                    <ul>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="blogs.html">Updates</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="pbf-facts.html">Festival Facts</a></li>
+                        <li><a href="world-record.html">World Record</a></li>
+                    </ul>
+                </nav>
+                <section aria-labelledby="festival-footer-newsletter">
+                    <h2 id="festival-footer-newsletter">Stay in the loop</h2>
+                    <p>Programme announcements, author reveals and ticket news.</p>
+                    <form class="festival-footer-signup" action="mailto:info@punebookfestival.org?subject=Newsletter%20signup" method="post" enctype="text/plain">
+                        <input type="email" name="email" aria-label="Email address" placeholder="you@email.com" autocomplete="email" required>
+                        <button type="submit" title="Send a signup request using your email app">Join</button>
+                    </form>
+                    <a class="festival-footer-register" href="index.html#festival-registration">Register <span aria-hidden="true">&rarr;</span></a>
+                </section>
+            </div>
+            <p class="festival-footer-bottom">&copy; 2026 Pune Book Festival &middot; Fergusson College Ground.</p>
+        </div>
+    </footer>
+
+    <a href="assets/pdf/Pune Lit Fest Brochure.pdf" class="download-float" aria-label="Download Event Timetable PDF" target="_blank" rel="noopener">
+        Download Event PDF
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="#" class="whatsapp-float" aria-label="Contact us on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+        </svg>
+    </a>
+    <script src="assets/js/app.js"></script>
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('December 13, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to PBF 2025!`;
+            } else {
+                document.getElementById('countdown').innerHTML = 'PBF 2025 is Live! 🎉';
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+# Image Assets Directory
+
+This directory contains all image assets for the Pune Book Festival website.
+
+## Required Images:
+- favicon.ico
+- og-image.jpg (Open Graph image for social media)
+- about-mission.jpg
+- vblog-concept.jpg
+- blog-1.jpg through blog-4.jpg
+- gallery-1.jpg through gallery-6.jpg
+- video-1.jpg through video-4.jpg (video thumbnails)
+
+## Image Guidelines:
+- Use optimized formats (WebP when possible, fallback to JPG/PNG)
+- Compress images for web performance
+- Maintain aspect ratios for consistent layout
+- Include alt text for accessibility
+
+## Recommended Sizes:
+- Hero images: 1200x600px
+- Blog thumbnails: 400x250px
+- Gallery photos: 800x600px
+- Video thumbnails: 640x360px
+- Open Graph image: 1200x630px

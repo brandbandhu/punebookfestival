@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pune Book Festival Reels - Watch our exciting video content, highlights, and exclusive moments from the literary event.">
+    <meta name="keywords" content="Pune Book Festival Reels, Literary Reels, Book Festival Highlights">
+    <title>Reels - Pune Book Festival 2024</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=countdown-split-flap">
+    <script src="assets/js/countdown.js?v=3" defer></script>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <style>
+        .reels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .reel-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .reel-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .reel-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .reel-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .reel-item:hover .reel-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .reel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .reel-item:hover .reel-overlay {
+            opacity: 1;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background-color: #ff6f61;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .reel-content {
+            padding: 1.5rem;
+        }
+
+        .reel-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .reel-description {
+            color: #777;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .reel-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #aaa;
+        }
+
+        .reel-category {
+            margin-top: 3rem;
+        }
+
+        .category-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: #ff6f61;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-description {
+            color: #777;
+            font-size: 1.125rem;
+        }
+
+        @media (max-width: 768px) {
+            .reels-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reel-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- World Record Badge -->
+    <div class="world-record-banner" style="background: linear-gradient(135deg, #ffcc00 0%, #ff6f61 100%); color: #333; text-align: center; padding: 0.5rem 0; font-weight: 600; font-size: 0.9rem; position: sticky; top: 0; z-index: 1001;">
+        <span>🏆 WORLD RECORD HOLDER - Largest Book Festival in India</span>
+        <div class="festival-countdown">
+            <p><span id="festival-countdown-label">Festival starts</span> <time datetime="2026-12-12T00:00:00+05:30">12 Dec 2026</time></p>
+            <p id="festival-countdown-timer" role="timer" hidden>
+                <span class="countdown-tile"><b data-unit="days" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="hours" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="minutes" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="seconds" aria-hidden="true"></b></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Header -->
+       <header class="header">
+        <div class="container">
+            <!-- Top Row with 3 Logos and Register Button -->
+            <div class="header-logos" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--gray-200);">
+                <div style="flex: 1;"></div>
+                 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex: 1;">
+                    <img src="assets/MOE.webp" alt="Pune Book Festival Logo" style="height: 60px;">
+                    <img src="assets/PBF logo.webp" alt="Partner Logo 2" style="height: 60px; opacity: 0.8;">
+                    <img src="assets/NBT_India_logo.webp" alt="Partner Logo 3" style="height: 60px; opacity: 0.8;">
+                </div>
+
+                <div style="flex: 1;"></div>
+
+            </div>
+
+            <div class="header-content" style="justify-content: center;">
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="childrescorner.html" class="nav-link">Children's Corner</a></li>
+                        <li class="nav-item"><a href="pbf-facts.html" class="nav-link">PBF Facts</a></li>
+                        <li class="nav-item"><a href="timetable.html" class="nav-link">Time Table</a></li>
+                        <li class="nav-item recap-nav">
+                            <details>
+                                <summary class="nav-link">Recap <span aria-hidden="true">&#9662;</span></summary>
+                                <ul class="recap-year-menu">
+                                    <li><a class="nav-link" href="recap.html#recap-2025">2025</a></li>
+                                    <li><a class="nav-link" href="recap.html#recap-2024">2024</a></li>
+                                    <li><a class="nav-link" href="recap.html#recap-2023">2023</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="gallery.html" class="nav-item" style="color: #000;">Gallery <span class="dropdown-arrow">▼</span></a>
+                            <div class="dropdown-menu">
+                                <a href="photos.html" class="dropdown-item">📸 Photos</a>
+                                <a href="videos.html" class="dropdown-item">🎥 Videos</a>
+                                <a href="Reels.html" class="dropdown-item">🎬 Reels</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
+                        <li class="nav-item"><a href="world-record.html" class="nav-link">World Record</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <a href="assets/pdf/Pune Lit Fest Brochure.pdf" class="download-float" aria-label="Download Event Timetable PDF" target="_blank" rel="noopener">
+        Download Event PDF
+    </a>
+
+    <!-- Hero Section -->
+        <section class="hero" style="padding: 3rem 0;">
+            <div class="container">
+                <h1>Explore Our Reels</h1>
+                <p>Watch the best moments from the Pune Book Festival, including interviews, highlights, and more!</p>
+            </div>
+        </section>
+
+        <section class="section reel-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">Instagram Reels</h2>
+                    <p class="category-description">Follow us on Instagram and watch the latest reels here.</p>
+                </div>
+
+                <div class="instagram-reels-grid">
+                    <div class="instagram-reel-card instagram-reel-card--short">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSFu3i9jHFV/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DSFu3i9jHFV/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card instagram-reel-card--short">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSFar2gjVMf/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DSFar2gjVMf/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card instagram-reel-card--short">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSFRmdJDHC-/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DSFRmdJDHC-/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DP89Wc1kkN2/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DP89Wc1kkN2/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DP8TUfMknV6/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DP8TUfMknV6/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DOMxzxJjFA9/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DOMxzxJjFA9/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRCQbMKkjft/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DRCQbMKkjft/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRKTdFpksBA/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DRKTdFpksBA/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRTxC7zDLPh/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DRTxC7zDLPh/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRPWJ6cDOd0/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DRPWJ6cDOd0/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRmMr6mjOoI/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DRmMr6mjOoI/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR2SY1UjAbT/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DR2SY1UjAbT/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR6KZMeDDbv/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DR6KZMeDDbv/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSCdhEeiqxW/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DSCdhEeiqxW/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <div class="instagram-reel-card">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSHIuerDItc/" data-instgrm-version="14">
+                            <a href="https://www.instagram.com/reel/DSHIuerDItc/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- V-Blog Series -->
+        <!-- <section class="section reel-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">Exclusive Reels</h2>
+                    <p class="category-description">Catch the best highlights and fun moments from the festival.</p>
+                </div>
+
+                <div class="reels-grid">
+                    <div class="reel-item" onclick="openLightbox(0, 'video')">
+                        <div class="reel-thumbnail">
+                            <img src="assets/pune book festival images/7.webp" alt="Reel 1" loading="lazy">
+                            <div class="reel-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                        </div>
+                        <div class="reel-content">
+                            <h3 class="reel-title">Literary Experts Discuss the Future of Literature</h3>
+                            <p class="reel-description">Join a roundtable discussion with leading literary minds.</p>
+                            <div class="reel-meta">
+                                <span>📅 Jan 2024</span>
+                                <span>⏱️ 8:45</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reel-item" onclick="openLightbox(1, 'video')">
+                        <div class="reel-thumbnail">
+                            <img src="assets/pune book festival images/6.webp" alt="Reel 2" loading="lazy">
+                            <div class="reel-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                        </div>
+                        <div class="reel-content">
+                            <h3 class="reel-title">Festival Highlights: Best Moments from PBF</h3>
+                            <p class="reel-description">A quick look at the most memorable moments of the festival!</p>
+                            <div class="reel-meta">
+                                <span>📅 Feb 2024</span>
+                                <span>⏱️ 5:20</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reel-item" onclick="openLightbox(2, 'video')">
+                        <div class="reel-thumbnail">
+                            <img src="assets/pune book festival images/5.webp" alt="Reel 3" loading="lazy">
+                            <div class="reel-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                        </div>
+                        <div class="reel-content">
+                            <h3 class="reel-title">Behind the Scenes: Setting Up for the Festival</h3>
+                            <p class="reel-description">Go behind the scenes and see how the magic happens!</p>
+                            <div class="reel-meta">
+                                <span>📅 Mar 2024</span>
+                                <span>⏱️ 12:10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+    </main>
+
+    <footer class="festival-footer">
+        <div class="festival-footer-inner">
+            <div class="festival-footer-grid">
+                <div class="festival-footer-intro">
+                    <a class="festival-footer-brand" href="index.html">
+                        <img src="assets/PBF%20logo.webp" alt="Pune Book Festival" width="120" height="100" loading="lazy">
+                    </a>
+                    <p>Ten days when Pune turns into a city made of paper. Books, authors, readers and ideas, together on one ground.</p>
+                    <address class="festival-footer-contact">
+                        <a href="https://maps.google.com/maps/dir//Fergusson+College,+Shivajinagar,+Pune"><span aria-hidden="true">&#x2316;</span>Fergusson College Ground, Pune, Maharashtra</a>
+                        <a href="mailto:info@punebookfestival.org"><span aria-hidden="true">&#x2709;</span>info@punebookfestival.org</a>
+                        <a href="tel:+912025678900"><span aria-hidden="true">&#x260E;</span>+91 20 2567 8900</a>
+                    </address>
+                </div>
+                <nav aria-label="Explore">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="timetable.html">Schedule</a></li>
+                        <li><a href="childrescorner.html">Children's Corner</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Festival">
+                    <h2>Festival</h2>
+                    <ul>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="blogs.html">Updates</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="pbf-facts.html">Festival Facts</a></li>
+                        <li><a href="world-record.html">World Record</a></li>
+                    </ul>
+                </nav>
+                <section aria-labelledby="festival-footer-newsletter">
+                    <h2 id="festival-footer-newsletter">Stay in the loop</h2>
+                    <p>Programme announcements, author reveals and ticket news.</p>
+                    <form class="festival-footer-signup" action="mailto:info@punebookfestival.org?subject=Newsletter%20signup" method="post" enctype="text/plain">
+                        <input type="email" name="email" aria-label="Email address" placeholder="you@email.com" autocomplete="email" required>
+                        <button type="submit" title="Send a signup request using your email app">Join</button>
+                    </form>
+                    <a class="festival-footer-register" href="index.html#festival-registration">Register <span aria-hidden="true">&rarr;</span></a>
+                </section>
+            </div>
+            <p class="festival-footer-bottom">&copy; 2026 Pune Book Festival &middot; Fergusson College Ground.</p>
+        </div>
+    </footer>
+
+
+    <!-- Lightbox -->
+    <div class="lightbox" style="display: none;">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+            <!-- Video content will load here dynamically -->
+        </div>
+    </div>
+
+    <script>
+        function openLightbox(index, type) {
+            // Load the video or content into the lightbox
+            document.querySelector('.lightbox').style.display = 'block';
+            // You can dynamically update the lightbox content here, like playing a video or showing more info
+        }
+
+        function closeLightbox() {
+            document.querySelector('.lightbox').style.display = 'none';
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('December 13, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to PBF 2025!`;
+            } else {
+                document.getElementById('countdown').innerHTML = 'PBF 2025 is Live! 🎉';
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            if (window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === 'function') {
+                window.instgrm.Embeds.process();
+            }
+        });
+    </script>
+</body>
+
+</html>

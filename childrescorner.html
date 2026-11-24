@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Children's Corner - Pune Book Festival. Special activities, storytelling, workshops, and fun events designed for young readers and kids.">
+    <meta name="keywords" content="Children's Corner, kids activities, storytelling, children books, young readers, Pune Book Festival">
+    <title>Children's Corner - Pune Book Festival 2024</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=countdown-split-flap">
+    <script src="assets/js/countdown.js?v=3" defer></script>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+
+<body>
+    <!-- World Record Badge -->
+    <div class="world-record-banner" style="background: linear-gradient(135deg, var(--gold) 0%, #DAA520 100%); color: var(--ink); text-align: center; padding: 0.5rem 0; font-weight: 600; font-size: 0.9rem; position: sticky; top: 0; z-index: 1001;">
+        <span>🏆 WORLD RECORD HOLDER - Largest Book Festival in India</span>
+        <div class="festival-countdown">
+            <p><span id="festival-countdown-label">Festival starts</span> <time datetime="2026-12-12T00:00:00+05:30">12 Dec 2026</time></p>
+            <p id="festival-countdown-timer" role="timer" hidden>
+                <span class="countdown-tile"><b data-unit="days" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="hours" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="minutes" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="seconds" aria-hidden="true"></b></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <!-- Top Row with 3 Logos and Register Button -->
+            <div class="header-logos" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--gray-200);">
+                <div style="flex: 1;"></div>
+                  <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex: 1;">
+                    <img src="assets/MOE.webp" alt="Pune Book Festival Logo" style="height: 60px;">
+                    <img src="assets/PBF logo.webp" alt="Partner Logo 2" style="height: 60px; opacity: 0.8;">
+                    <img src="assets/NBT_India_logo.webp" alt="Partner Logo 3" style="height: 60px; opacity: 0.8;">
+                </div>
+
+                <div style="flex: 1;"></div>
+
+            </div>
+
+            <div class="header-content" style="justify-content: center;">
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="childrescorner.html" class="nav-link">Children's Corner</a></li>
+                        <li class="nav-item"><a href="pbf-facts.html" class="nav-link">PBF Facts</a></li>
+                        <li class="nav-item"><a href="timetable.html" class="nav-link">Time Table</a></li>
+                        <li class="nav-item recap-nav">
+                            <details>
+                                <summary class="nav-link">Recap <span aria-hidden="true">&#9662;</span></summary>
+                                <ul class="recap-year-menu">
+                                    <li><a class="nav-link" href="recap.html#recap-2025">2025</a></li>
+                                    <li><a class="nav-link" href="recap.html#recap-2024">2024</a></li>
+                                    <li><a class="nav-link" href="recap.html#recap-2023">2023</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="gallery.html" class="nav-item" style="color: #000;">Gallery <span class="dropdown-arrow">▼</span></a>
+                            <div class="dropdown-menu">
+                                <a href="photos.html" class="dropdown-item">📸 Photos</a>
+                                <a href="videos.html" class="dropdown-item">🎥 Videos</a>
+                                 <a href="Reels.html" class="dropdown-item">🎬 Reels</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
+                        <li class="nav-item"><a href="world-record.html" class="nav-link">World Record</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; padding: 4rem 0;">
+            <div class="container text-center">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">👶📚</div>
+                <h1 style="color: white;">Children's Corner</h1>
+                <p style="font-size: 1.25rem; opacity: 0.9;">Where young minds discover the magic of reading and storytelling</p>
+            </div>
+        </section>
+
+        <!-- Activities Overview -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">🎪 Fun Activities for Kids</h2>
+                    <p class="section-subtitle">Specially designed programs to make reading fun and engaging for children</p>
+                </div>
+
+                <div class="grid grid-3" style="gap: 2rem;">
+                    <!-- Storytelling Sessions -->
+                    <div class="activity-card" style="background: linear-gradient(135deg, #FF6B6B, #FF5252); color: white; padding: 2rem; border-radius: 1rem; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📖</div>
+                        <h3 style="color: white; margin-bottom: 1rem;">Interactive Storytelling</h3>
+                        <p style="opacity: 0.9; margin-bottom: 1.5rem;">Professional storytellers bring fairy tales, folk stories, and adventures to life with props, voices, and audience participation.</p>
+                        <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 0.5rem;">
+                            <strong>Age Group: 3-12 years</strong>
+                        </div>
+                    </div>
+
+                    <!-- Art & Craft -->
+                    <div class="activity-card" style="background: linear-gradient(135deg, #4ECDC4, #26A69A); color: white; padding: 2rem; border-radius: 1rem; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
+                        <h3 style="color: white; margin-bottom: 1rem;">Art & Craft Workshops</h3>
+                        <p style="opacity: 0.9; margin-bottom: 1.5rem;">Create bookmarks, design book covers, make paper puppets, and craft story-themed art projects with guidance from expert instructors.</p>
+                        <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 0.5rem;">
+                            <strong>Age Group: 5-15 years</strong>
+                        </div>
+                    </div>
+
+                    <!-- Puppet Shows -->
+                    <div class="activity-card" style="background: linear-gradient(135deg, #FFD93D, #FFC107); color: var(--ink); padding: 2rem; border-radius: 1rem; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎭</div>
+                        <h3 style="margin-bottom: 1rem;">Puppet Shows</h3>
+                        <p style="opacity: 0.8; margin-bottom: 1.5rem;">Colorful puppet performances featuring popular children's stories, moral tales, and educational content presented in an entertaining format.</p>
+                        <div style="background: rgba(0,0,0,0.1); padding: 0.5rem; border-radius: 0.5rem;">
+                            <strong>Age Group: 2-10 years</strong>
+                        </div>
+                    </div>
+
+                    <!-- Reading Competitions -->
+                    <div class="activity-card" style="background: linear-gradient(135deg, #9C27B0, #7B1FA2); color: white; padding: 2rem; border-radius: 1rem; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+                        <h3 style="color: white; margin-bottom: 1rem;">Reading Competitions</h3>
+                        <p style="opacity: 0.9; margin-bottom: 1.5rem;">Fun reading challenges, spelling bees, and book quizzes with exciting prizes to encourage reading habits among children.</p>
+                        <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 0.5rem;">
+                            <strong>Age Group: 6-16 years</strong>
+                        </div>
+                    </div>
+
+                    <!-- Meet the Authors -->
+                    <div class="activity-card" style="background: linear-gradient(135deg, #FF9800, #F57C00); color: white; padding: 2rem; border-radius: 1rem; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">✍️</div>
+                        <h3 style="color: white; margin-bottom: 1rem;">Meet Children's Authors</h3>
+                        <p style="opacity: 0.9; margin-bottom: 1.5rem;">Special sessions with renowned children's book authors, illustrators, and creators sharing their writing journey and inspiration.</p>
+                        <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 0.5rem;">
+                            <strong>Age Group: 8-16 years</strong>
+                        </div>
+                    </div>
+
+                    <!-- Book Making Workshop -->
+                    <div class="activity-card" style="background: linear-gradient(135deg, #3F51B5, #303F9F); color: white; padding: 2rem; border-radius: 1rem; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📚</div>
+                        <h3 style="color: white; margin-bottom: 1rem;">Make Your Own Book</h3>
+                        <p style="opacity: 0.9; margin-bottom: 1.5rem;">Hands-on workshop where children create their own mini books, write stories, and illustrate them with help from professional guides.</p>
+                        <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 0.5rem;">
+                            <strong>Age Group: 7-14 years</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Schedule -->
+        <section class="section" style="background-color: var(--gray-50);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">📅 Daily Schedule</h2>
+                    <p class="section-subtitle">Plan your child's visit with our organized activity schedule</p>
+                </div>
+
+                <div class="schedule-grid" style="background: white; border-radius: 1rem; box-shadow: var(--shadow-lg); overflow: hidden;">
+                    <div style="background: linear-gradient(135deg, var(--maroon), #6B1515); color: white; padding: 1.5rem; text-align: center;">
+                        <h3 style="color: white; margin: 0;">Children's Corner Schedule</h3>
+                    </div>
+
+                    <div style="padding: 2rem;">
+                        <div class="grid grid-2" style="gap: 2rem;">
+                            <!-- Morning Sessions -->
+                            <div>
+                                <h4 style="color: var(--maroon); margin-bottom: 1rem; font-size: 1.3rem;">🌅 Morning Sessions (10:00 AM - 12:00 PM)</h4>
+                                <div class="schedule-item" style="padding: 1rem; background: var(--cream); border-radius: 0.5rem; margin-bottom: 1rem;">
+                                    <div style="font-weight: 600; color: var(--maroon);">10:00 - 10:45 AM</div>
+                                    <div>Interactive Storytelling Session</div>
+                                </div>
+                                <div class="schedule-item" style="padding: 1rem; background: var(--cream); border-radius: 0.5rem; margin-bottom: 1rem;">
+                                    <div style="font-weight: 600; color: var(--maroon);">11:00 - 11:45 AM</div>
+                                    <div>Art & Craft Workshop</div>
+                                </div>
+                                <div class="schedule-item" style="padding: 1rem; background: var(--cream); border-radius: 0.5rem;">
+                                    <div style="font-weight: 600; color: var(--maroon);">12:00 - 12:30 PM</div>
+                                    <div>Puppet Show Performance</div>
+                                </div>
+                            </div>
+
+                            <!-- Afternoon Sessions -->
+                            <div>
+                                <h4 style="color: var(--maroon); margin-bottom: 1rem; font-size: 1.3rem;">☀️ Afternoon Sessions (2:00 PM - 5:00 PM)</h4>
+                                <div class="schedule-item" style="padding: 1rem; background: var(--cream); border-radius: 0.5rem; margin-bottom: 1rem;">
+                                    <div style="font-weight: 600; color: var(--maroon);">2:00 - 2:45 PM</div>
+                                    <div>Reading Competition</div>
+                                </div>
+                                <div class="schedule-item" style="padding: 1rem; background: var(--cream); border-radius: 0.5rem; margin-bottom: 1rem;">
+                                    <div style="font-weight: 600; color: var(--maroon);">3:00 - 4:00 PM</div>
+                                    <div>Meet the Author Session</div>
+                                </div>
+                                <div class="schedule-item" style="padding: 1rem; background: var(--cream); border-radius: 0.5rem;">
+                                    <div style="font-weight: 600; color: var(--maroon);">4:15 - 5:00 PM</div>
+                                    <div>Make Your Own Book Workshop</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Features -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">⭐ Special Features</h2>
+                    <p class="section-subtitle">What makes our Children's Corner unique and exciting</p>
+                </div>
+
+                <div class="grid grid-2" style="gap: 3rem; align-items: center;">
+                    <div>
+                        <div class="feature-list">
+                            <div class="feature-item" style="display: flex; align-items: center; margin-bottom: 1.5rem; padding: 1rem; background: var(--gray-50); border-radius: 0.75rem;">
+                                <div style="font-size: 2rem; margin-right: 1rem;">🎁</div>
+                                <div>
+                                    <h4 style="margin-bottom: 0.5rem; color: var(--maroon);">Free Activity Kits</h4>
+                                    <p style="margin: 0; color: var(--gray-600);">Every child receives a free activity kit with books, crayons, and craft materials</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item" style="display: flex; align-items: center; margin-bottom: 1.5rem; padding: 1rem; background: var(--gray-50); border-radius: 0.75rem;">
+                                <div style="font-size: 2rem; margin-right: 1rem;">👨‍👩‍👧‍👦</div>
+                                <div>
+                                    <h4 style="margin-bottom: 0.5rem; color: var(--maroon);">Family-Friendly Space</h4>
+                                    <p style="margin: 0; color: var(--gray-600);">Dedicated safe area with seating for parents and comfortable play zones</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item" style="display: flex; align-items: center; margin-bottom: 1.5rem; padding: 1rem; background: var(--gray-50); border-radius: 0.75rem;">
+                                <div style="font-size: 2rem; margin-right: 1rem;">🏅</div>
+                                <div>
+                                    <h4 style="margin-bottom: 0.5rem; color: var(--maroon);">Certificates & Prizes</h4>
+                                    <p style="margin: 0; color: var(--gray-600);">Participation certificates and exciting prizes for all activities and competitions</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item" style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border-radius: 0.75rem;">
+                                <div style="font-size: 2rem; margin-right: 1rem;">📱</div>
+                                <div>
+                                    <h4 style="margin-bottom: 0.5rem; color: var(--maroon);">Photo Memories</h4>
+                                    <p style="margin: 0; color: var(--gray-600);">Professional photography to capture your child's special moments at the festival</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="background: linear-gradient(135deg, #FF6B6B, #FF5252); color: white; padding: 2rem; border-radius: 1rem; text-align: center;">
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">🎪</div>
+                            <h3 style="color: white; margin-bottom: 1rem;">50,000+ Children Participated</h3>
+                            <p style="opacity: 0.9; margin-bottom: 1.5rem;">Join thousands of young readers who have discovered the joy of books at our Children's Corner</p>
+                            <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 0.5rem;">
+                                <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Free Entry</div>
+                                <div style="opacity: 0.9;">All activities included</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Age-wise Recommendations -->
+        <section class="section" style="background-color: var(--cream);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">👶 Age-wise Activity Guide</h2>
+                    <p class="section-subtitle">Find the perfect activities for your child's age group</p>
+                </div>
+
+                <div class="grid grid-3" style="gap: 2rem;">
+                    <!-- Toddlers -->
+                    <div class="age-group-card" style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow-md); border-top: 5px solid #FF6B6B;">
+                        <div style="text-align: center; margin-bottom: 1.5rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">👶</div>
+                            <h3 style="color: #FF6B6B;">Ages 2-5</h3>
+                            <div style="color: var(--gray-600);">Toddlers & Preschoolers</div>
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">🎭 Simple puppet shows</li>
+                            <li style="margin-bottom: 0.5rem;">📖 Picture book reading</li>
+                            <li style="margin-bottom: 0.5rem;">🎨 Basic coloring activities</li>
+                            <li style="margin-bottom: 0.5rem;">🎵 Rhyme and song sessions</li>
+                        </ul>
+                    </div>
+
+                    <!-- School Kids -->
+                    <div class="age-group-card" style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow-md); border-top: 5px solid #4ECDC4;">
+                        <div style="text-align: center; margin-bottom: 1.5rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🧒</div>
+                            <h3 style="color: #4ECDC4;">Ages 6-12</h3>
+                            <div style="color: var(--gray-600);">School Children</div>
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">📚 Interactive storytelling</li>
+                            <li style="margin-bottom: 0.5rem;">🏆 Reading competitions</li>
+                            <li style="margin-bottom: 0.5rem;">✂️ Advanced craft workshops</li>
+                            <li style="margin-bottom: 0.5rem;">✍️ Creative writing sessions</li>
+                        </ul>
+                    </div>
+
+                    <!-- Teens -->
+                    <div class="age-group-card" style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow-md); border-top: 5px solid #9C27B0;">
+                        <div style="text-align: center; margin-bottom: 1.5rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">👦</div>
+                            <h3 style="color: #9C27B0;">Ages 13-16</h3>
+                            <div style="color: var(--gray-600);">Teenagers</div>
+                        </div>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">✍️ Author meet & greets</li>
+                            <li style="margin-bottom: 0.5rem;">📖 Book making workshops</li>
+                            <li style="margin-bottom: 0.5rem;">🎯 Literary quizzes</li>
+                            <li style="margin-bottom: 0.5rem;">💭 Discussion forums</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration CTA -->
+        <section class="section" style="background: linear-gradient(135deg, var(--maroon) 0%, #6B1515 100%); color: white;">
+            <div class="container text-center">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+                <h2 style="color: white; margin-bottom: 1rem;">Register Your Child Today!</h2>
+                <p style="font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.9;">
+                    Give your child the gift of reading and creativity. All activities are free and designed to inspire a lifelong love for books.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn" style="background-color: var(--gold); color: var(--ink);">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="festival-footer">
+        <div class="festival-footer-inner">
+            <div class="festival-footer-grid">
+                <div class="festival-footer-intro">
+                    <a class="festival-footer-brand" href="index.html">
+                        <img src="assets/PBF%20logo.webp" alt="Pune Book Festival" width="120" height="100" loading="lazy">
+                    </a>
+                    <p>Ten days when Pune turns into a city made of paper. Books, authors, readers and ideas, together on one ground.</p>
+                    <address class="festival-footer-contact">
+                        <a href="https://maps.google.com/maps/dir//Fergusson+College,+Shivajinagar,+Pune"><span aria-hidden="true">&#x2316;</span>Fergusson College Ground, Pune, Maharashtra</a>
+                        <a href="mailto:info@punebookfestival.org"><span aria-hidden="true">&#x2709;</span>info@punebookfestival.org</a>
+                        <a href="tel:+912025678900"><span aria-hidden="true">&#x260E;</span>+91 20 2567 8900</a>
+                    </address>
+                </div>
+                <nav aria-label="Explore">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="timetable.html">Schedule</a></li>
+                        <li><a href="childrescorner.html">Children's Corner</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Festival">
+                    <h2>Festival</h2>
+                    <ul>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="blogs.html">Updates</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="pbf-facts.html">Festival Facts</a></li>
+                        <li><a href="world-record.html">World Record</a></li>
+                    </ul>
+                </nav>
+                <section aria-labelledby="festival-footer-newsletter">
+                    <h2 id="festival-footer-newsletter">Stay in the loop</h2>
+                    <p>Programme announcements, author reveals and ticket news.</p>
+                    <form class="festival-footer-signup" action="mailto:info@punebookfestival.org?subject=Newsletter%20signup" method="post" enctype="text/plain">
+                        <input type="email" name="email" aria-label="Email address" placeholder="you@email.com" autocomplete="email" required>
+                        <button type="submit" title="Send a signup request using your email app">Join</button>
+                    </form>
+                    <a class="festival-footer-register" href="index.html#festival-registration">Register <span aria-hidden="true">&rarr;</span></a>
+                </section>
+            </div>
+            <p class="festival-footer-bottom">&copy; 2026 Pune Book Festival &middot; Fergusson College Ground.</p>
+        </div>
+    </footer>
+    <a href="assets/pdf/Pune Lit Fest Brochure.pdf" class="download-float" aria-label="Download Event Timetable PDF" target="_blank" rel="noopener">
+        Download Event PDF
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="#" class="whatsapp-float" aria-label="Contact us on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+        </svg>
+    </a>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+        <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 0; border-radius: 1rem; width: 90%; max-width: 500px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; max-height: 90vh; overflow-y: auto;">
+            <div style="background: linear-gradient(135deg, var(--maroon) 0%, #6B1515 100%); color: white; padding: 2rem; border-radius: 1rem 1rem 0 0; text-align: center; position: relative;">
+                <button onclick="closeRegistrationModal()" style="position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.2); border: none; color: white; font-size: 1.5rem; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">&times;</button>
+                <h2 style="margin: 0; font-size: 1.8rem;">🎉 Register for PBF 2024</h2>
+                <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">Join India's Largest Book Festival</p>
+            </div>
+            <div style="padding: 2rem;">
+                <form id="registrationForm" onsubmit="submitRegistration(event)">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--ink);">Full Name *</label>
+                        <input type="text" name="fullName" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-300); border-radius: 0.5rem; font-size: 1rem;" placeholder="Enter your full name">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--ink);">Email Address *</label>
+                        <input type="email" name="email" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-300); border-radius: 0.5rem; font-size: 1rem;" placeholder="Enter your email">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--ink);">Phone Number *</label>
+                        <input type="tel" name="phone" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-300); border-radius: 0.5rem; font-size: 1rem;" placeholder="Enter your phone number">
+                    </div>
+                    <button type="submit" style="width: 100%; background: linear-gradient(135deg, var(--maroon) 0%, #6B1515 100%); color: white; border: none; padding: 1rem; border-radius: 0.5rem; font-size: 1.1rem; font-weight: 600; cursor: pointer;">Register Now 🎉</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('December 13, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to PBF 2025!`;
+            } else {
+                document.getElementById('countdown').innerHTML = 'PBF 2025 is Live! 🎉';
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+    </script>
+</body>
+
+</html>

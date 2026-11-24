@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pune Book Festival Videos - Watch highlights, V-blogs, author interviews, and festival moments from our literary celebration.">
+    <meta name="keywords"
+        content="Pune Book Festival videos, V-blogs, author interviews, festival highlights, literary videos">
+    <title>Videos - Pune Book Festival 2024</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=countdown-split-flap">
+    <script src="assets/js/countdown.js?v=3" defer></script>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <style>
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+            background-color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+
+        .video-item:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        .video-item:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background-color: var(--maroon);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .video-content {
+            padding: 1.5rem;
+        }
+
+        .video-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .video-description {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .video-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: var(--maroon);
+            margin-bottom: 0.5rem;
+        }
+
+        .category-description {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+        }
+
+        .video-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--maroon);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+    <style>
+    @media (max-width: 768px) {
+        .header-logos {
+            flex-direction: column;
+            text-align: center;
+        }
+        .header-logos .btn {
+            max-width: 100%;
+        }
+        .header-logos .flex {
+            flex: none;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <!-- World Record Badge -->
+    <div class="world-record-banner" style="background: linear-gradient(135deg, var(--gold) 0%, #DAA520 100%); color: var(--ink); text-align: center; padding: 0.5rem 0; font-weight: 600; font-size: 0.9rem; position: sticky; top: 0; z-index: 1001;">
+        <span>🏆 WORLD RECORD HOLDER - Largest Book Festival in India</span>
+        <div class="festival-countdown">
+            <p><span id="festival-countdown-label">Festival starts</span> <time datetime="2026-12-12T00:00:00+05:30">12 Dec 2026</time></p>
+            <p id="festival-countdown-timer" role="timer" hidden>
+                <span class="countdown-tile"><b data-unit="days" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="hours" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="minutes" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="seconds" aria-hidden="true"></b></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <!-- Top Row with 3 Logos and Register Button -->
+            <div class="header-logos" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--gray-200);">
+                <div style="flex: 1;"></div>
+                 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex: 1;">
+                    <img src="assets/MOE.webp" alt="Pune Book Festival Logo" style="height: 60px;">
+                    <img src="assets/PBF logo.webp" alt="Partner Logo 2" style="height: 60px; opacity: 0.8;">
+                    <img src="assets/NBT_India_logo.webp" alt="Partner Logo 3" style="height: 60px; opacity: 0.8;">
+                </div>
+
+                <div style="flex: 1;"></div>
+            </div>
+
+            <div class="header-content" style="justify-content: center;">
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="childrescorner.html" class="nav-link">Children's Corner</a></li>
+                        <li class="nav-item"><a href="pbf-facts.html" class="nav-link">PBF Facts</a></li>
+                        <li class="nav-item"><a href="timetable.html" class="nav-link">Time Table</a></li>
+                        <li class="nav-item recap-nav">
+                            <details>
+                                <summary class="nav-link">Recap <span aria-hidden="true">&#9662;</span></summary>
+                                <ul class="recap-year-menu">
+                                    <li><a class="nav-link" href="recap.html#recap-2025">2025</a></li>
+                                    <li><a class="nav-link" href="recap.html#recap-2024">2024</a></li>
+                                    <li><a class="nav-link" href="recap.html#recap-2023">2023</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="gallery.html" class="nav-item" style="color: #000;">Gallery <span class="dropdown-arrow">▼</span></a>
+                            <div class="dropdown-menu">
+                                <a href="photos.html" class="dropdown-item">📸 Photos</a>
+                                <a href="videos.html" class="dropdown-item">🎥 Videos</a>
+                                 <a href="Reels.html" class="dropdown-item">🎬 Reels</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
+                        <li class="nav-item"><a href="world-record.html" class="nav-link">World Record</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="padding: 3rem 0;">
+            <div class="container">
+                <h1>Festival Videos & V-Blogs</h1>
+                <p>Watch highlights, author interviews, and our exclusive V-Blog series bringing literature to life</p>
+            </div>
+        </section>
+
+        <!-- Navigation Breadcrumb -->
+        <section style="background-color: var(--gray-50); padding: 1rem 0;">
+            <div class="container">
+                <nav style="font-size: 0.875rem; color: var(--gray-600);">
+                    <a href="index.html" style="color: var(--gray-600);">Home</a>
+                    <span> / </span>
+                    <a href="gallery.html" style="color: var(--gray-600);">Gallery</a>
+                    <span> / </span>
+                    <span style="color: var(--maroon); font-weight: 500;">Videos</span>
+                </nav>
+            </div>
+        </section>
+
+        <section class="section video-category" style="background-color: var(--cream);">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">Checkout our videos</h2>
+                  
+                </div>
+
+                <div class="embedded-videos-grid">
+                    <div class="embed-video-card">
+                        <button class="embed-video-thumb" type="button" data-embed-src="https://www.youtube.com/embed/2mL2eRyizeM">
+                            <img src="assets/pune book festival images/7.webp" alt="Pune Book Festival author session" loading="lazy">
+                            <span class="embed-video-play" aria-hidden="true">▶</span>
+                        </button>
+                    </div>
+                    <div class="embed-video-card">
+                        <button class="embed-video-thumb" type="button" data-embed-src="https://www.youtube.com/embed/vny45ZKXTx8">
+                            <img src="assets/pune book festival images/8.webp" alt="Pune Book Festival audience" loading="lazy">
+                            <span class="embed-video-play" aria-hidden="true">▶</span>
+                        </button>
+                    </div>
+                    <div class="embed-video-card">
+                        <button class="embed-video-thumb" type="button" data-embed-src="https://www.youtube.com/embed/GZFxk9GyFcA">
+                            <img src="assets/pune book festival images/5.webp" alt="Pune Book Festival stage session" loading="lazy">
+                            <span class="embed-video-play" aria-hidden="true">▶</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+        <!-- Author Interviews -->
+        <!-- <section class="section video-category" style="background-color: var(--gray-50);">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">Author Interviews</h2>
+                    <p class="category-description">Exclusive conversations with renowned authors about their work and
+                        writing journey</p>
+                </div>
+
+                <div class="videos-grid">
+                    <div class="video-item" onclick="openLightbox(3, 'video')">
+                        <div class="video-thumbnail">
+                            <img src="assets/pune book festival images/7.webp" alt="Author Interview" loading="lazy">
+                            <div class="video-badge">Interview</div>
+                            <div class="video-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">In Conversation with Bestselling Author Meera Joshi</h3>
+                            <p class="video-description">Discussing her latest novel and the inspiration behind her
+                                writing process.</p>
+                            <div class="video-meta">
+                                <span>📅 Feb 2024</span>
+                                <span>⏱️ 25:15</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item" onclick="openLightbox(4, 'video')">
+                        <div class="video-thumbnail">
+                            <img src="assets/pune book festival images/5.webp" alt="Poetry Interview" loading="lazy">
+                            <div class="video-badge">Interview</div>
+                            <div class="video-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Poetry & Life: A Chat with Amit Verma</h3>
+                            <p class="video-description">Exploring the intersection of poetry and everyday life with
+                                renowned poet Amit Verma.</p>
+                            <div class="video-meta">
+                                <span>📅 Jan 2024</span>
+                                <span>⏱️ 18:45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Festival Highlights -->
+        <!-- <section class="section video-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">Festival Highlights</h2>
+                    <p class="category-description">Capturing the best moments from past Pune Book Festival events</p>
+                </div>
+
+                <div class="videos-grid">
+                    <div class="video-item" onclick="openLightbox(5, 'video')">
+                        <div class="video-thumbnail">
+                            <img src="assets/pune book festival images/6.webp" alt="Festival Highlights 2023" loading="lazy">
+                            <div class="video-badge">Highlights</div>
+                            <div class="video-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Pune Book Festival 2023: A Year to Remember</h3>
+                            <p class="video-description">Relive the magical moments from our 2023 festival with this
+                                comprehensive highlight reel.</p>
+                            <div class="video-meta">
+                                <span>📅 Mar 2023</span>
+                                <span>⏱️ 22:30</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item" onclick="openLightbox(6, 'video')">
+                        <div class="video-thumbnail">
+                            <img src="assets/pune book festival images/1.webp" alt="Children's Corner Highlights" loading="lazy">
+                            <div class="video-badge">Highlights</div>
+                            <div class="video-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Children's Corner: Joy of Reading</h3>
+                            <p class="video-description">Heartwarming moments from our children's activities and
+                                storytelling sessions.</p>
+                            <div class="video-meta">
+                                <span>📅 Feb 2023</span>
+                                <span>⏱️ 14:20</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item" onclick="openLightbox(7, 'video')">
+                        <div class="video-thumbnail">
+                            <img src="assets/pune book festival images/4.webp" alt="Workshop Highlights" loading="lazy">
+                            <div class="video-badge">Highlights</div>
+                            <div class="video-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Creative Workshops: Learning & Growing</h3>
+                            <p class="video-description">Behind-the-scenes look at our popular writing and poetry
+                                workshops.</p>
+                            <div class="video-meta">
+                                <span>📅 Feb 2023</span>
+                                <span>⏱️ 16:45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Call to Action -->
+        <section class="section"
+            style="background: linear-gradient(135deg, var(--maroon) 0%, #6B1515 100%); color: white;">
+            <div class="container text-center">
+                <h2 style="color: white; margin-bottom: 1rem;">Subscribe to Our Channel</h2>
+                <p style="font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.9;">
+                    Don't miss our latest V-Blogs and festival updates. Subscribe to stay connected with Pune's literary
+                    community.
+                </p>
+
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://youtube.com/@punebook_festival?si=ojCYYHqnG2GaJ--7" target="_blank" rel="noopener" class="btn" style="background-color: var(--gold); color: var(--ink);">📺 Subscribe on
+                        YouTube</a>
+                    <a href="photos.html" class="btn btn-outline" style="color: white; border-color: white;">📸 View
+                        Photos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+            <!-- Content will be loaded by JavaScript -->
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('December 13, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to PBF 2025!`;
+            } else {
+                document.getElementById('countdown').innerHTML = 'PBF 2025 is Live! 🎉';
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+        document.querySelectorAll('.embed-video-thumb').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const src = btn.getAttribute('data-embed-src');
+                const card = btn.closest('.embed-video-card');
+                if (!src || !card) return;
+
+                const iframe = document.createElement('iframe');
+                iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1&rel=0';
+                iframe.title = 'Embedded Video';
+                iframe.loading = 'lazy';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                iframe.allowFullscreen = true;
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = '0';
+
+                card.innerHTML = '';
+                card.appendChild(iframe);
+            });
+        });
+    </script>
+
+    <footer class="festival-footer">
+        <div class="festival-footer-inner">
+            <div class="festival-footer-grid">
+                <div class="festival-footer-intro">
+                    <a class="festival-footer-brand" href="index.html">
+                        <img src="assets/PBF%20logo.webp" alt="Pune Book Festival" width="120" height="100" loading="lazy">
+                    </a>
+                    <p>Ten days when Pune turns into a city made of paper. Books, authors, readers and ideas, together on one ground.</p>
+                    <address class="festival-footer-contact">
+                        <a href="https://maps.google.com/maps/dir//Fergusson+College,+Shivajinagar,+Pune"><span aria-hidden="true">&#x2316;</span>Fergusson College Ground, Pune, Maharashtra</a>
+                        <a href="mailto:info@punebookfestival.org"><span aria-hidden="true">&#x2709;</span>info@punebookfestival.org</a>
+                        <a href="tel:+912025678900"><span aria-hidden="true">&#x260E;</span>+91 20 2567 8900</a>
+                    </address>
+                </div>
+                <nav aria-label="Explore">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="timetable.html">Schedule</a></li>
+                        <li><a href="childrescorner.html">Children's Corner</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Festival">
+                    <h2>Festival</h2>
+                    <ul>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="blogs.html">Updates</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="pbf-facts.html">Festival Facts</a></li>
+                        <li><a href="world-record.html">World Record</a></li>
+                    </ul>
+                </nav>
+                <section aria-labelledby="festival-footer-newsletter">
+                    <h2 id="festival-footer-newsletter">Stay in the loop</h2>
+                    <p>Programme announcements, author reveals and ticket news.</p>
+                    <form class="festival-footer-signup" action="mailto:info@punebookfestival.org?subject=Newsletter%20signup" method="post" enctype="text/plain">
+                        <input type="email" name="email" aria-label="Email address" placeholder="you@email.com" autocomplete="email" required>
+                        <button type="submit" title="Send a signup request using your email app">Join</button>
+                    </form>
+                    <a class="festival-footer-register" href="index.html#festival-registration">Register <span aria-hidden="true">&rarr;</span></a>
+                </section>
+            </div>
+            <p class="festival-footer-bottom">&copy; 2026 Pune Book Festival &middot; Fergusson College Ground.</p>
+        </div>
+    </footer>
+
+    <a href="assets/pdf/Pune Lit Fest Brochure.pdf" class="download-float" aria-label="Download Event Timetable PDF" target="_blank" rel="noopener">
+        Download Event PDF
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="#" class="whatsapp-float" aria-label="Contact us on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+        </svg>
+    </a>
+
+</body>
+
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pune Book Festival Photos - View stunning photos from past festivals, author events, and literary activities.">
+    <meta name="keywords" content="Pune Book Festival photos, festival moments, literary events, author photos">
+    <title>Photos - Pune Book Festival 2024</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=countdown-split-flap">
+    <script src="assets/js/countdown.js?v=3" defer></script>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <style>
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+            color: white;
+            font-size: 2rem;
+        }
+
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: var(--maroon);
+            margin-bottom: 0.5rem;
+        }
+
+        .category-description {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+        }
+
+        @media (max-width: 768px) {
+            .photos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .photo-item img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- World Record Badge -->
+    <div class="world-record-banner"
+        style="background: linear-gradient(135deg, var(--gold) 0%, #DAA520 100%); color: var(--ink); text-align: center; padding: 0.5rem 0; font-weight: 600; font-size: 0.9rem; position: sticky; top: 0; z-index: 1001;">
+        <span>🏆 WORLD RECORD HOLDER - Largest Book Festival in India</span>
+        <div class="festival-countdown">
+            <p><span id="festival-countdown-label">Festival starts</span> <time datetime="2026-12-12T00:00:00+05:30">12 Dec 2026</time></p>
+            <p id="festival-countdown-timer" role="timer" hidden>
+                <span class="countdown-tile"><b data-unit="days" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="hours" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="minutes" aria-hidden="true"></b></span>
+                <span class="countdown-tile"><b data-unit="seconds" aria-hidden="true"></b></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <!-- Top Row with 3 Logos and Register Button -->
+            <div class="header-logos"
+                style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--gray-200);">
+                <div style="flex: 1;"></div>
+                  <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex: 1;">
+                    <img src="assets/MOE.webp" alt="Pune Book Festival Logo" style="height: 60px;">
+                    <img src="assets/PBF logo.webp" alt="Partner Logo 2" style="height: 60px; opacity: 0.8;">
+                    <img src="assets/NBT_India_logo.webp" alt="Partner Logo 3" style="height: 60px; opacity: 0.8;">
+                </div>
+
+                <div style="flex: 1;"></div>
+
+            </div>
+
+            <div class="header-content" style="justify-content: center;">
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="childrescorner.html" class="nav-link">Children's Corner</a></li>
+                        <li class="nav-item"><a href="pbf-facts.html" class="nav-link">PBF Facts</a></li>
+                        <li class="nav-item"><a href="timetable.html" class="nav-link">Time Table</a></li>
+                        <li class="nav-item recap-nav">
+                            <details>
+                                <summary class="nav-link">Recap <span aria-hidden="true">&#9662;</span></summary>
+                                <ul class="recap-year-menu">
+                                    <li><a class="nav-link" href="recap.html#recap-2025">2025</a></li>
+                                    <li><a class="nav-link" href="recap.html#recap-2024">2024</a></li>
+                                    <li><a class="nav-link" href="recap.html#recap-2023">2023</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="gallery.html" class="nav-item" style="color: #000;">Gallery <span class="dropdown-arrow">▼</span></a>
+                            <div class="dropdown-menu">
+                                <a href="photos.html" class="dropdown-item">📸 Photos</a>
+                                <a href="videos.html" class="dropdown-item">🎥 Videos</a>
+                                 <a href="Reels.html" class="dropdown-item">🎬 Reels</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
+                        <li class="nav-item"><a href="world-record.html" class="nav-link">World Record</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="padding: 3rem 0;">
+            <div class="container">
+                <h1>Festival Photos</h1>
+                <p>Capturing the magical moments and vibrant atmosphere of Pune Book Festival</p>
+            </div>
+        </section>
+
+        <!-- Navigation Breadcrumb -->
+        <section style="background-color: var(--gray-50); padding: 1rem 0;">
+            <div class="container">
+                <nav style="font-size: 0.875rem; color: var(--gray-600);">
+                    <a href="index.html" style="color: var(--gray-600);">Home</a>
+                    <span> / </span>
+                    <a href="gallery.html" style="color: var(--gray-600);">Gallery</a>
+                    <span> / </span>
+                    <span style="color: var(--maroon); font-weight: 500;">Photos</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Author Events Photos -->
+        <section class="section photo-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">Author Events & Book Signings</h2>
+                    <p class="category-description">Meet and greet sessions with renowned authors and literary
+                        personalities</p>
+                </div>
+
+                <div class="photos-grid">
+                    <!-- New: Pune Book Festival images -->
+                    <div class="gallery-item">
+                        <img src="assets/pune book festival images/20.webp"
+                            alt="Crowds browsing books at Pune Book Festival">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/pune book festival images/10.webp"
+                            alt="Colorful book stall at Pune Book Festival">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/pune book festival images/11.webp" alt="Readers exploring stacks of books">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/pune book festival images/12.webp" alt="Pune Book Festival entrance gate">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/pune book festival images/13.webp" alt="Wide view of book exhibition hall">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/pune book festival images/14.webp"
+                            alt="Students checking out titles at a stall">
+                        <div class="gallery-overlay"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Festival Atmosphere -->
+        <section class="section photo-category" style="background-color: var(--gray-50);">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">Festival Atmosphere</h2>
+                    <p class="category-description">The vibrant energy and enthusiasm of festival attendees</p>
+                </div>
+
+                <div class="photos-grid">
+                    <div class="photo-item" onclick="openLightbox(3, 'photo')">
+                        <img src="assets/pune book festival images/16.webp" alt="Festival crowd enjoying events"
+                            loading="lazy">
+                        <div class="photo-overlay">
+
+                        </div>
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(4, 'photo')">
+                        <img src="assets/pune book festival images/6.webp" alt="Book stalls and vendors" loading="lazy">
+                        <div class="photo-overlay">
+
+                        </div>
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(5, 'photo')">
+                        <img src="assets/pune book festival images/16.webp" alt="Reading corner activities"
+                            loading="lazy">
+                        <div class="photo-overlay">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Children's Activities -->
+        <section class="section photo-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">Children's Corner</h2>
+                    <p class="category-description">Young readers enjoying storytelling sessions and creative activities
+                    </p>
+                </div>
+
+                <div class="photos-grid">
+                    <div class="photo-item" onclick="openLightbox(6, 'photo')">
+                        <img src="assets/pune book festival images/1.webp" alt="Children's storytelling session"
+                            loading="lazy">
+                        <div class="photo-overlay">
+
+                        </div>
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(7, 'photo')">
+                        <img src="assets/pune book festival images/2.webp" alt="Kids art and craft workshop"
+                            loading="lazy">
+                        <div class="photo-overlay">
+
+                        </div>
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(8, 'photo')">
+                        <img src="assets/pune book festival images/18.webp" alt="Puppet show performance"
+                            loading="lazy">
+                        <div class="photo-overlay">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workshops & Panels -->
+        <section class="section photo-category" style="background-color: var(--gray-50);">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">Workshops & Panel Discussions</h2>
+                    <p class="category-description">Interactive learning sessions and literary discussions</p>
+                </div>
+
+                <div class="photos-grid">
+                    <div class="photo-item" onclick="openLightbox(9, 'photo')">
+                        <img src="assets/pune book festival images/4.webp" alt="Poetry workshop in progress"
+                            loading="lazy">
+                        <div class="photo-overlay">
+
+                        </div>
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(10, 'photo')">
+                        <img src="assets/pune book festival images/5.webp" alt="Writing workshop session"
+                            loading="lazy">
+                        <div class="photo-overlay">
+
+                        </div>
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(11, 'photo')">
+                        <img src="assets/pune book festival images/7.webp" alt="Literary panel discussion"
+                            loading="lazy">
+                        <div class="photo-overlay">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Share Section -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">Share Your Festival Moments</h2>
+                    <p class="section-subtitle">Tag us in your photos and become part of our gallery</p>
+
+                    <div style="margin-bottom: 2rem;">
+                        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                            <span class="badge"
+                                style="background-color: var(--maroon); color: white; padding: 0.5rem 1rem; font-size: 1rem;">#PuneBookFestival</span>
+                            <span class="badge"
+                                style="background-color: var(--accent); color: white; padding: 0.5rem 1rem; font-size: 1rem;">#FestivalMoments</span>
+                            <span class="badge"
+                                style="background-color: var(--gold); color: var(--ink); padding: 0.5rem 1rem; font-size: 1rem;">#LiteraryPune</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#" class="btn btn-outline">📘 Facebook</a>
+                        <a href="#" class="btn btn-outline">📷 Instagram</a>
+                        <a href="#" class="btn btn-outline">🐦 Twitter</a>
+                        <a href="videos.html" class="btn btn-primary">🎥 Watch Videos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+            <!-- Content will be loaded by JavaScript -->
+        </div>
+    </div>
+
+    <footer class="festival-footer">
+        <div class="festival-footer-inner">
+            <div class="festival-footer-grid">
+                <div class="festival-footer-intro">
+                    <a class="festival-footer-brand" href="index.html">
+                        <img src="assets/PBF%20logo.webp" alt="Pune Book Festival" width="120" height="100" loading="lazy">
+                    </a>
+                    <p>Ten days when Pune turns into a city made of paper. Books, authors, readers and ideas, together on one ground.</p>
+                    <address class="festival-footer-contact">
+                        <a href="https://maps.google.com/maps/dir//Fergusson+College,+Shivajinagar,+Pune"><span aria-hidden="true">&#x2316;</span>Fergusson College Ground, Pune, Maharashtra</a>
+                        <a href="mailto:info@punebookfestival.org"><span aria-hidden="true">&#x2709;</span>info@punebookfestival.org</a>
+                        <a href="tel:+912025678900"><span aria-hidden="true">&#x260E;</span>+91 20 2567 8900</a>
+                    </address>
+                </div>
+                <nav aria-label="Explore">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="timetable.html">Schedule</a></li>
+                        <li><a href="childrescorner.html">Children's Corner</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Festival">
+                    <h2>Festival</h2>
+                    <ul>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="blogs.html">Updates</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="pbf-facts.html">Festival Facts</a></li>
+                        <li><a href="world-record.html">World Record</a></li>
+                    </ul>
+                </nav>
+                <section aria-labelledby="festival-footer-newsletter">
+                    <h2 id="festival-footer-newsletter">Stay in the loop</h2>
+                    <p>Programme announcements, author reveals and ticket news.</p>
+                    <form class="festival-footer-signup" action="mailto:info@punebookfestival.org?subject=Newsletter%20signup" method="post" enctype="text/plain">
+                        <input type="email" name="email" aria-label="Email address" placeholder="you@email.com" autocomplete="email" required>
+                        <button type="submit" title="Send a signup request using your email app">Join</button>
+                    </form>
+                    <a class="festival-footer-register" href="index.html#festival-registration">Register <span aria-hidden="true">&rarr;</span></a>
+                </section>
+            </div>
+            <p class="festival-footer-bottom">&copy; 2026 Pune Book Festival &middot; Fergusson College Ground.</p>
+        </div>
+    </footer>
+
+    <a href="assets/pdf/Pune Lit Fest Brochure.pdf" class="download-float" aria-label="Download Event Timetable PDF" target="_blank" rel="noopener">
+        Download Event PDF
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="#" class="whatsapp-float" aria-label="Contact us on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+        </svg>
+    </a>
+    <script src="assets/js/app.js"></script>
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('December 13, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to PBF 2025!`;
+            } else {
+                document.getElementById('countdown').innerHTML = 'PBF 2025 is Live! 🎉';
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+</body>
+
+</html>
