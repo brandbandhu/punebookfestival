@@ -51,6 +51,13 @@
 .archive-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: filter .2s ease; }
 .archive-gallery a:hover img { filter: brightness(.85); }
 .archive-gallery span { display: block; padding: .8rem 1rem; font-weight: 700; }
+.archive-gallery small { display: block; margin-top: .15rem; color: var(--gray-600); font-size: .8125rem; font-weight: 500; }
+.archive-gallery a[hidden] { display: none; }
+.archive-gallery-filters:not([hidden]) { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .75rem; }
+.archive-gallery-filters button { min-height: 44px; padding: .45rem .85rem; border: 1px solid var(--maroon); border-radius: var(--radius-md); background: #fffdfa; color: var(--maroon); font: 600 .875rem/1.2 var(--font-body); cursor: pointer; }
+.archive-gallery-filters button:hover { background: var(--cream); }
+.archive-gallery-filters button[aria-pressed="true"] { background: var(--maroon); color: var(--white); }
+.archive-gallery-count { color: var(--gray-600); font-size: .875rem; }
 .archive-credit { font-size: .9rem; }
 .archive-timeline { padding: 0; list-style: none; max-width: 55rem; }
 .archive-timeline li { display: grid; grid-template-columns: 10rem 1fr; gap: .65rem 1.5rem; padding: 1.25rem 0; border-top: 1px solid var(--archive-rule); }
@@ -60,13 +67,35 @@
 .archive-dialog { position: fixed; inset: 0; width: min(94vw, 65rem); max-height: 94dvh; overflow: auto; margin: auto; padding: 1rem; border: 0; border-radius: .65rem; background: #2c1516; color: #fff8ed; }
 .archive-dialog::backdrop { background: rgb(20 10 10 / 85%); }
 .archive-dialog figure { margin: 0; text-align: center; }
-.archive-dialog img { display: block; width: 100%; max-height: 68dvh; object-fit: contain; }
+.archive-dialog figure img { display: block; width: 100%; max-height: 56dvh; object-fit: contain; }
 .archive-dialog figcaption { margin-top: .5rem; }
+.archive-album-thumbnails { display: flex; gap: .5rem; overflow-x: auto; margin-top: .65rem; padding: .35rem; }
+.archive-dialog .archive-album-thumbnails button { flex: 0 0 4rem; min-height: 44px; padding: .15rem; border: 2px solid transparent; }
+.archive-dialog .archive-album-thumbnails [aria-current="true"] { border-color: var(--gold); }
+.archive-album-thumbnails img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: .2rem; }
 .archive-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: .65rem; }
 .archive-dialog button { min-width: 44px; min-height: 44px; color: inherit; background: transparent; border: 1px solid #d5ad99; border-radius: .3rem; padding: .4rem .7rem; cursor: pointer; }
 .archive-dialog button:hover { background: #582a2d; }
 .archive-close { display: block; margin: 0 0 .5rem auto; font-size: 1.3rem; line-height: 1; }
 body:has(.archive-dialog[open]) { overflow: hidden; }
+
+@keyframes archive-rise {
+  from { opacity: 0; transform: translateY(1.1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .archive-hero-grid > * { animation: archive-rise 650ms ease-out both; }
+  .archive-cover { animation-delay: 120ms; }
+  .archive-dialog[open] { animation: archive-rise 220ms ease-out; }
+  .archive-gallery img { transition: transform 350ms ease, filter 200ms ease; }
+  .archive-highlights article { transition: transform 220ms ease, box-shadow 220ms ease; }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .archive-gallery a:hover img { transform: scale(1.045); }
+  .archive-highlights article:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+}
 @media (max-width: 900px) {
   .archive-highlights, .archive-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
@@ -82,13 +111,15 @@ body:has(.archive-dialog[open]) { overflow: hidden; }
   .archive-page .festival-footer-inner { padding-inline: 1.25rem; }
 }
 @media (max-width: 520px) {
-  #achievements dl, .archive-highlights, .archive-gallery, .archive-timeline li { grid-template-columns: 1fr; }
+  #achievements dl, .archive-highlights, .archive-timeline li { grid-template-columns: 1fr; }
   .archive-jump > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: .75rem; }
   #achievements dl > div { flex-direction: row; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; flex-wrap: wrap; }
   #achievements dd { margin-bottom: 0; }
+  .archive-gallery { gap: .5rem; }
+  .archive-gallery span { padding: .55rem; font-size: .875rem; }
 }
 @media (max-height: 480px) {
-  .archive-dialog img { max-height: 53dvh; }
+  .archive-dialog figure img { max-height: 39dvh; }
 }
 @media (prefers-reduced-motion: reduce) {
   .archive-page *, .archive-page *::before, .archive-page *::after { scroll-behavior: auto !important; transition: none !important; }
