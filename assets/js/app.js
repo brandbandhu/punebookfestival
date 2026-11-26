@@ -193,7 +193,7 @@ function initializeNavigation() {
     
     // Close mobile menu when clicking on a link
     navLinks.addEventListener('click', function(e) {
-      if (e.target.classList.contains('nav-link') || e.target.classList.contains('dropdown-item')) {
+      if (e.target.closest('a.nav-link, a.dropdown-item')) {
         navLinks.classList.remove('active');
         mobileToggle.setAttribute('aria-expanded', 'false');
       }

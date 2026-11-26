@@ -1,0 +1,81 @@
+.archive-page {
+  --archive-paper: var(--cream);
+  --archive-rule: #e4d5c9;
+  background: var(--archive-paper);
+  padding-top: 0;
+}
+.archive-page .header { position: relative; top: auto; }
+.archive-page main { margin-top: 0; padding-top: 0; }
+.archive-page .header-logos > div:first-child,
+.archive-page .header-logos > div:last-child { display: none !important; }
+.archive-page .header-logos img { max-width: 30vw; object-fit: contain; }
+.archive-skip { position: absolute; z-index: 2000; left: 1rem; top: 1rem; transform: translateY(-250%); background: white; padding: .75rem; }
+.archive-skip:focus { transform: none; }
+.archive-page :focus-visible { outline: 3px solid #ad7413; outline-offset: 4px; }
+.archive-shell { width: min(100% - clamp(2rem, 8vw, 8rem), 72rem); margin-inline: auto; }
+.archive-hero { background: linear-gradient(135deg, var(--maroon), #461518); color: var(--white); padding-block: clamp(3rem, 7vw, 6rem); }
+.archive-hero-grid, .archive-split { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 5rem); }
+.archive-kicker { color: var(--maroon); font-size: .875rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin-bottom: .85rem; }
+.archive-hero .archive-kicker { color: var(--gold); }
+.archive-hero h1 { color: inherit; font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 700; line-height: 1.08; letter-spacing: -.035em; margin: 0; }
+.archive-theme { color: var(--gold); font: 600 clamp(1.35rem, 3vw, 2.25rem)/1.2 var(--font-heading); margin: 1rem 0; }
+.archive-details { line-height: 1.6; margin-bottom: 1.5rem; }
+.archive-details span { display: block; }
+.archive-button { background: var(--gold); color: var(--ink); padding: .75rem 1.15rem; font-weight: 700; }
+.archive-button:hover, .archive-button:focus-visible { background: #ffe2a3; color: var(--ink); }
+.archive-cover { margin: 0; }
+.archive-cover img, .archive-editorial-photo img { display: block; width: 100%; height: auto; border-radius: .55rem; }
+.archive-cover img { border: 1px solid #d3a465; }
+.archive-cover figcaption, .archive-editorial-photo figcaption { font-size: .85rem; margin-top: .5rem; }
+.archive-cover figcaption { color: #f1d7bd; }
+.archive-jump { background: #f6ebdf; border-bottom: 1px solid var(--archive-rule); }
+.archive-jump > div { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; padding-block: .85rem; }
+.archive-jump a { color: #661d24; font-size: .9rem; font-weight: 700; }
+.archive-jump a:hover { text-decoration: underline; }
+.archive-section { padding-block: clamp(2.75rem, 6vw, 5.5rem); }
+.archive-section h2 { color: var(--maroon); font-size: clamp(1.75rem, 3.6vw, 2.75rem); line-height: 1.15; letter-spacing: -.025em; margin: 0 0 1.45rem; }
+.archive-section h3 { color: var(--ink); font-size: 1.25rem; line-height: 1.25; margin: 0 0 .6rem; }
+.archive-band { background: #f6eee5; }
+.archive-text-link { color: #7a2028; text-decoration: underline; text-underline-offset: .2em; }
+.archive-text-link:hover { color: #48191b; }
+#achievements dl, .archive-highlights, .archive-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; margin-bottom: 1rem; }
+#achievements dl > div, .archive-highlights article { border: 1px solid var(--archive-rule); border-radius: .55rem; background: #fffdfa; padding: clamp(1.15rem, 3vw, 2rem); }
+#achievements dl > div { display: flex; flex-direction: column; }
+#achievements dd { order: -1; color: var(--maroon); font: 700 clamp(1.65rem, 3.6vw, 3rem)/1.15 var(--font-heading); margin: 0 0 .3rem; }
+#achievements dt { font-weight: 600; }
+.archive-announcements { padding-inline-start: 1.25rem; margin: .75rem 0 1rem; list-style: disc; }
+.archive-announcements li + li { margin-top: .5rem; }
+.archive-highlights article { border-top: 3px solid #ab7738; }
+.archive-highlights p, .archive-timeline p { margin-bottom: 0; }
+.archive-gallery a { display: block; overflow: hidden; color: #48191b; background: #fffdfa; border: 1px solid var(--archive-rule); border-radius: .55rem; }
+.archive-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: filter .2s ease; }
+.archive-gallery a:hover img { filter: brightness(.85); }
+.archive-gallery span { display: block; padding: .8rem 1rem; font-weight: 700; }
+.archive-credit { font-size: .9rem; }
+.archive-timeline { padding: 0; list-style: none; max-width: 55rem; }
+.archive-timeline li { display: grid; grid-template-columns: 10rem 1fr; gap: .65rem 1.5rem; padding: 1.25rem 0; border-top: 1px solid var(--archive-rule); }
+.archive-timeline time { color: #7a2028; font-weight: 700; }
+.archive-page .festival-footer [aria-current] { text-decoration: underline; }
+.archive-dialog { position: fixed; inset: 0; width: min(94vw, 65rem); max-height: 94dvh; overflow: auto; margin: auto; padding: 1rem; border: 0; border-radius: .65rem; background: #2c1516; color: #fff8ed; }
+.archive-dialog::backdrop { background: rgb(20 10 10 / 85%); }
+.archive-dialog figure { margin: 0; text-align: center; }
+.archive-dialog img { display: block; width: 100%; max-height: 68dvh; object-fit: contain; }
+.archive-dialog figcaption { margin-top: .5rem; }
+.archive-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: .65rem; }
+.archive-dialog button { color: inherit; background: transparent; border: 1px solid #d5ad99; border-radius: .3rem; padding: .4rem .7rem; cursor: pointer; }
+.archive-dialog button:hover { background: #582a2d; }
+.archive-close { display: block; margin: 0 0 .5rem auto; font-size: 1.3rem; line-height: 1; }
+body:has(.archive-dialog[open]) { overflow: hidden; }
+@media (max-width: 900px) {
+  .archive-highlights, .archive-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 720px) {
+  .archive-hero-grid, .archive-split { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  #achievements dl, .archive-highlights, .archive-gallery, .archive-timeline li { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .archive-page *, .archive-page *::before, .archive-page *::after { scroll-behavior: auto !important; transition: none !important; }
+  html:has(.archive-page) { scroll-behavior: auto; }
+}
