@@ -8,158 +8,68 @@
         content="Pune Book Festival Blogs - Read latest updates, campaign stories, author features, and literary insights from our festival community.">
     <meta name="keywords"
         content="Pune Book Festival blogs, literary updates, #MyBookMyStory, reading initiatives, author features">
-    <title>Blogs & Updates - Pune Book Festival 2024</title>
+    <title>Festival Blog Archive | Pune Book Festival</title>
     <link rel="stylesheet" href="assets/css/style.css?v=countdown-split-flap">
     <script src="assets/js/countdown.js?v=3" defer></script>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <style>
-        .blogs-grid {
+        .blog-archive-hero {
+            min-height: 0;
+            padding-block: clamp(2.5rem, 7vw, 6rem);
+        }
+
+        .blog-archive {
+            background: var(--cream);
+        }
+
+        .blog-archive-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+            gap: 1.25rem;
         }
 
-        .blog-card {
-            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        .blog-archive-grid article {
+            scroll-margin-top: calc(var(--world-record-banner-height) + var(--header-safe-space) + 4rem);
         }
 
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
+        .blog-archive-grid article:target {
+            outline: 2px solid var(--maroon);
+            outline-offset: 4px;
         }
 
-        .blog-image {
+        .blog-archive-grid img {
+            display: block;
             width: 100%;
-            height: 250px;
+            aspect-ratio: 16 / 9;
             object-fit: cover;
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
         }
 
-        .blog-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-            color: var(--gray-600);
+        .blog-archive-grid h3 {
+            margin-block: .4rem .55rem;
         }
 
-        .blog-excerpt {
+        .blog-archive-grid time {
             color: var(--gray-700);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+            font-size: .875rem;
         }
 
-        .blog-modal .lightbox-content {
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius-xl);
-            position: relative;
-        }
-
-        .blog-modal .lightbox-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--gray-100);
-            color: var(--gray-600);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all var(--transition-fast);
-        }
-
-        .blog-modal .lightbox-close:hover {
-            background: var(--gray-200);
-            color: var(--gray-800);
-        }
-
-        .featured-post {
-            background: linear-gradient(135deg, var(--maroon) 0%, #6B1515 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: var(--radius-xl);
-            margin-bottom: 3rem;
-        }
-
-        .featured-post h2 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .featured-post .btn {
-            margin-top: 1rem;
-        }
-
-        .category-filter {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .category-btn {
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--gray-300);
-            background-color: var(--white);
-            color: var(--gray-700);
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            font-size: 0.875rem;
-        }
-
-        .category-btn:hover,
-        .category-btn.active {
-            background-color: var(--maroon);
-            border-color: var(--maroon);
-            color: var(--white);
+        .blog-archive-grid a {
+            display: inline-block;
+            margin-top: .65rem;
+            color: var(--maroon);
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            .blogs-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-post {
-                padding: 1.5rem;
-            }
-
-            .blog-modal .lightbox-content {
-                padding: 1.5rem;
-                margin: 1rem;
-                max-height: 95vh;
-            }
+            .festival-blogs { padding-top: 0; }
+            .festival-blogs .world-record-banner { position: static !important; height: auto; padding-block: .5rem !important; }
+            .festival-blogs .header { position: relative; top: auto; }
+            .blog-archive-grid article { scroll-margin-top: 1rem; }
         }
     </style>
-
-    <style>
-    @media (max-width: 768px) {
-        .header-logos {
-            flex-direction: column;
-            text-align: center;
-        }
-        .header-logos .btn {
-            max-width: 100%;
-        }
-        .header-logos .flex {
-            flex: none;
-        }
-    }
-</style>
 </head>
 
-<body>
+<body class="festival-blogs">
     <!-- World Record Badge -->
     <div class="world-record-banner" style="background: linear-gradient(135deg, var(--gold) 0%, #DAA520 100%); color: var(--ink); text-align: center; padding: 0.5rem 0; font-weight: 600; font-size: 0.9rem; position: sticky; top: 0; z-index: 1001;">
         <span>🏆 WORLD RECORD HOLDER - Largest Book Festival in India</span>
@@ -229,168 +139,67 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
-        <section class="hero" style="padding: 3rem 0;">
+        <section class="hero blog-archive-hero">
             <div class="container">
-                <h1>Blogs yet to be Updated</h1>
-                <p>Stay connected with the latest news, stories, and insights from Pune Book Festival</p>
+                <h1>Festival Blog Archive</h1>
+                <p>Past stories, reading campaigns and updates from Pune Book Festival.</p>
             </div>
         </section>
 
-        <!-- Featured Post -->
-        <!-- <section class="section">
-            <div class="container">
-                <div class="featured-post">
-                    <div class="grid grid-2" style="align-items: center; gap: 2rem;">
-                        <div>
-                            <div class="badge"
-                                style="background-color: var(--gold); color: var(--ink); margin-bottom: 1rem;">Featured
-                                Campaign</div>
-                            <h2>#MyBookMyStory - Share Your Reading Journey</h2>
-                            <p style="opacity: 0.9; margin-bottom: 1rem;">
-                                Join thousands of readers in sharing the story of the book that changed your life. Our
-                                #MyBookMyStory campaign celebrates the transformative power of literature and creates a
-                                community of passionate readers.
-                            </p>
-                            <p style="opacity: 0.9; margin-bottom: 1.5rem;">
-                                Share your story on social media with #MyBookMyStory and stand a chance to win exciting
-                                prizes including signed books, festival passes, and exclusive author meet-and-greets.
-                            </p>
-                            <button class="btn btn-outline" style="color: white; border-color: white;"
-                                onclick="openBlogModal(1)">Read Full Story</button>
-                        </div>
-                        <div>
-                            <div
-                                style="background-color: rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 2rem; text-align: center;">
-                                <div style="font-size: 4rem; margin-bottom: 1rem;">📖</div>
-                                <h3 style="color: white; margin-bottom: 0.5rem;">Share Your Story</h3>
-                                <p style="opacity: 0.8;">Join the #MyBookMyStory movement</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- Category Filter -->
-        <!-- <section class="section" style="padding-top: 0;">
-            <div class="container">
-                <div class="category-filter">
-                    <button class="category-btn active" data-category="all">All Posts</button>
-                    <button class="category-btn" data-category="Campaign">Campaigns</button>
-                    <button class="category-btn" data-category="Initiative">Initiatives</button>
-                    <button class="category-btn" data-category="Authors">Authors</button>
-                    <button class="category-btn" data-category="V-Blog">V-Blogs</button>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- Blog Posts Grid -->
-        <!-- <section class="section" style="padding-top: 0;">
-            <div class="container">
-                <div class="blogs-grid"> -->
-                    <!-- Blog posts will be loaded by JavaScript -->
-                <!-- </div>
-            </div>
-        </section> -->
-
-        <!-- Newsletter Signup -->
-        <!-- <section class="section" style="background-color: var(--cream);">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-title">Stay Updated</h2>
-                    <p class="section-subtitle">Subscribe to our newsletter for the latest festival updates and literary
-                        insights</p>
-
-                    <div style="max-width: 500px; margin: 0 auto;">
-                        <form class="newsletter-form" style="display: flex; gap: 1rem; margin-top: 2rem;">
-                            <input type="email" placeholder="Enter your email address" class="form-input"
-                                style="flex: 1;" required>
-                            <button type="submit" class="btn btn-primary">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- Reading Initiatives -->
-        <!-- <section class="section">
+        <section class="section blog-archive" aria-labelledby="previous-posts-title">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Our Reading Initiatives</h2>
-                    <p class="section-subtitle">Promoting reading culture across Pune through innovative programs</p>
+                    <h2 class="section-title" id="previous-posts-title">Previous Posts</h2>
                 </div>
-
-                <div class="grid grid-2">
-                    <div class="card">
+                <div class="blog-archive-grid">
+                    <article class="card" id="road-journey">
+                        <img src="assets/archive-2025/announcement-560.webp" alt="A speaker at the 2025 festival announcement" loading="lazy">
                         <div class="card-body">
-                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                <div
-                                    style="width: 60px; height: 60px; background-color: var(--maroon); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
-                                    📚</div>
-                                <h3 style="margin: 0;">शांतता, पुणेकर वाचत आहेत</h3>
-                            </div>
-                            <p>A city-wide reading initiative encouraging Puneites to embrace the culture of reading in
-                                peaceful environments. This movement has created reading corners across the city.</p>
-                            <button class="btn btn-outline btn-sm" onclick="openBlogModal(2)"
-                                style="margin-top: 1rem;">Learn More</button>
+                            <time datetime="2025-10-16">16 October 2025</time>
+                            <h3>Books on Wheels</h3>
+                            <p>The festival’s mobile book exhibition brought Marathi, Hindi and English books beyond the festival grounds.</p>
+                            <a href="/2025/#timeline">See the 2025 outreach timeline</a>
                         </div>
-                    </div>
-
-                    <div class="card">
+                    </article>
+                    <article class="card" id="post-4">
+                        <img src="assets/pune%20book%20festival%20images/19.webp" alt="Readers browsing books at the festival" loading="lazy">
                         <div class="card-body">
-                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                <div
-                                    style="width: 60px; height: 60px; background-color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
-                                    🎥</div>
-                                <h3 style="margin: 0;">V-Blog Series</h3>
-                            </div>
-                            <p>Our innovative video blog series featuring book reviews, author interviews, and literary
-                                discussions. Making literature accessible through engaging visual content.</p>
-                            <a href="gallery.html#videos" class="btn btn-outline btn-sm" style="margin-top: 1rem;">Watch
-                                V-Blogs</a>
+                            <time datetime="2024-01-30">30 January 2024</time>
+                            <h3>V-Blogs: Stories in Motion</h3>
+                            <p>The festival’s video blog series covered book reviews, author interviews and reading recommendations.</p>
+                            <a href="videos.html">Browse festival videos</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- Social Media Integration -->
-        <!-- <section class="section" style="background-color: var(--gray-50);">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Join the Conversation</h2>
-                    <p class="section-subtitle">Connect with us on social media and be part of our literary community
-                    </p>
-                </div>
-
-                <div class="text-center">
-                    <div style="margin-bottom: 2rem;">
-                        <h3 style="margin-bottom: 1rem;">Follow our hashtags:</h3>
-                        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                            <span class="badge"
-                                style="background-color: var(--maroon); color: white; padding: 0.5rem 1rem; font-size: 1rem;">#PuneBookFestival</span>
-                            <span class="badge"
-                                style="background-color: var(--accent); color: white; padding: 0.5rem 1rem; font-size: 1rem;">#MyBookMyStory</span>
-                            <span class="badge"
-                                style="background-color: var(--gold); color: var(--ink); padding: 0.5rem 1rem; font-size: 1rem;">#PuneReads</span>
-                            <span class="badge"
-                                style="background-color: var(--gray-600); color: white; padding: 0.5rem 1rem; font-size: 1rem;">#LiteraryPune</span>
+                    </article>
+                    <article class="card" id="post-3">
+                        <img src="assets/pune%20book%20festival%20images/7.webp" alt="A discussion on the festival stage" loading="lazy">
+                        <div class="card-body">
+                            <time datetime="2024-01-25">25 January 2024</time>
+                            <h3>Meet the Authors: Festival Lineup</h3>
+                            <p>This archive entry introduced the authors and poets featured in the festival’s literary programme.</p>
+                            <a href="recap.html#recap-2024">Explore the 2024 festival recap</a>
                         </div>
-                    </div>
-
-                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                        <a href="#" class="btn btn-outline">📘 Facebook</a>
-                        <a href="#" class="btn btn-outline">📷 Instagram</a>
-                        <a href="#" class="btn btn-outline">🐦 Twitter</a>
-                        <a href="#" class="btn btn-outline">📺 YouTube</a>
-                    </div>
+                    </article>
+                    <article class="card" id="post-2">
+                        <img src="assets/pune%20book%20festival%20images/1.webp" alt="Participants gathered at a festival reading event" loading="lazy">
+                        <div class="card-body">
+                            <time datetime="2024-01-20">20 January 2024</time>
+                            <h3 lang="mr">शांतता, पुणेकर वाचत आहेत</h3>
+                            <p>A citywide reading initiative that invited people in Pune to set aside time to read together.</p>
+                        </div>
+                    </article>
+                    <article class="card" id="post-1">
+                        <img src="assets/pune%20book%20festival%20images/10.webp" alt="Visitors looking through a festival book stall" loading="lazy">
+                        <div class="card-body">
+                            <time datetime="2024-01-15">15 January 2024</time>
+                            <h3>#MyBookMyStory Campaign</h3>
+                            <p>The campaign invited readers to share the story of a book that changed their lives.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
-    </main> -->
+    </main>
 
     <footer class="festival-footer">
         <div class="festival-footer-inner">
@@ -482,29 +291,6 @@
     </div>
 
     <script src="assets/js/app.js"></script>
-    <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const targetDate = new Date('December 13, 2025 00:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance > 0) {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to PBF 2025!`;
-            } else {
-                document.getElementById('countdown').innerHTML = 'PBF 2025 is Live! 🎉';
-            }
-        }
-
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
-    </script>
 </body>
 
 </html>
